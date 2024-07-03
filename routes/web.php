@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// v2 routes
+Route::group(['prefix' => 'v2'], function () {
+    Route::view('{any?}', 'v2.index')->where('any', '.*');
+});
